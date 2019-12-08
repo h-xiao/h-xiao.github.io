@@ -19,13 +19,16 @@ We will use the mysql.connector to connect to MySQL via Python. If you don't hav
 pip install mysql-connector-python
 ```
 
+
 After that is installed, we can import in the package 
 
 ```python
 import mysql.connector
 ```
 
-And use this function to create our SQL database. (called securities_db)
+
+And use this function to create our SQL database (called securities_db).
+Note: we will have to set a hostname, username, and password which I've specified in a separate config 
 
 ```python
 def CreateDB:
