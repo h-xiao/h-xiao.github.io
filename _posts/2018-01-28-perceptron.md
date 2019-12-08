@@ -8,6 +8,43 @@ header:
 mathjax: "true"
 ---
 
+# Part 1: Getting Financial Data and Storing Data in MySQL
+
+
+Note this part assumes you have MySQL, Python, Anaconda installed. 
+
+We will use the mysql.connector to connect to MySQL via Python. If you don't have this package installed, you will need to run this line in cmd:
+
+```cmd
+pip install mysql-connector-python
+```
+
+
+
+
+## Getting S&P historical daily price
+
+
+
+## Setting up MySQL connection in Python
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # H1 Heading
 
 ## H2 Heading
