@@ -13,7 +13,7 @@ mathjax: "true"
 
 Note this part assumes you have MySQL, Python, Anaconda installed. 
 
-We will use the mysql.connector to connect to MySQL via Python. If you don't have this package installed, you will need to run this line in cmd:
+We will use the mysql.connector to connect to MySQL via Python. If you don't have this package installed, you will need to run this in command line:
 
 ```cmd
 pip install mysql-connector-python
