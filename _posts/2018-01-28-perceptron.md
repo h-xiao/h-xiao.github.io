@@ -11,7 +11,7 @@ mathjax: "true"
 # Part 1: Getting Financial Data and Storing Data in MySQL
 
 
-Note this part assumes you have MySQL, Python, Anaconda installed. 
+Note: this part assumes you have MySQL, Python, Anaconda installed. 
 
 We will use the mysql.connector to connect to MySQL via Python. If you don't have this package installed, you will need to run this in command line:
 
@@ -28,7 +28,8 @@ import mysql.connector
 
 
 And use this function to create our SQL database (called securities_db).
-Note: we will have to set a hostname, username, and password which I've specified in a separate config 
+
+Note: we will have to set a hostname, username, and password which I've specified in a separate config. 
 
 ```python
 def CreateDB:
@@ -48,11 +49,32 @@ def CreateDB:
         print (db)
 ```
 
+After the database is set up, we will need to create tables to store the data. Since we don't know the format of the data that we will download yet, it might be good to set up these tables after.
+
+Sample code to create a table:
+
+```python
+def CreateTB:
+
+    # Connect to the MySQL instance
+    con = mysql.connector.connect(
+        host = db_config['host'],
+        user = db_config['user'],
+        password = db_config['password'],
+        database = db_config['database'])
+
+    cur = con.cursor(buffered=True)
+    cur.execute('''CREATE TABLE tickers (id int NOT NULL AUTO_INCREMENT, 
+                                      ticker varchar(32) NOT NULL,
+                                      PRIMARY KEY (id)) ''')
+```
+
+
+# Part 2: Getting S&P historical daily price
 
 
 
 
-## Getting S&P historical daily price
 
 
 
