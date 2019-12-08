@@ -49,6 +49,7 @@ def CreateDB:
         print (db)
 ```
 
+
 After the database is set up, we will need to create tables to store the data. Since we don't know the format of the data that we will download yet, it might be good to set up these tables after.
 
 Sample code to create a table:
@@ -65,9 +66,16 @@ def CreateTB:
 
     cur = con.cursor(buffered=True)
     cur.execute('''CREATE TABLE tickers (id int NOT NULL AUTO_INCREMENT, 
-                                      ticker varchar(32) NOT NULL,
-                                      PRIMARY KEY (id)) ''')
+    									ticker varchar(32) NOT NULL,
+    									PRIMARY KEY (id)) ''')
+
+    con.commit()
+
+    cur.execute('SHOW TABLES')
+    for tb in cur:
+        print (tb)
 ```
+
 
 
 # Part 2: Getting S&P historical daily price
