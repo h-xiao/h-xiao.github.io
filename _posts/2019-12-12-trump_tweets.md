@@ -1,5 +1,5 @@
 ---
-title: “Performing Sentiment Analysis on Tweets and Analyzing Their Effect on Major Stock Indexes"
+title: Performing Sentiment Analysis on Tweets and Analyzing Their Effect on Major Stock Indexes
 date: 2019-10-01
 #tags: [Python, Twitter, Sentiment Analysis]
 header:
@@ -7,7 +7,7 @@ header:
 mathjax: "true"
 ---
 
-#Part 1: Getting Tweets Using Twitter API
+# Part 1: Getting Tweets Using Twitter API
 
 In order to access Twitter's API, you will need to register for a Twitter developer account. You should get the API key in 1-2 weeks after registering.
 
