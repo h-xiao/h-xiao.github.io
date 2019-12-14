@@ -66,8 +66,7 @@ raw_train_df = pd.read_csv(os.path.join(train_path, 'NiekSanders.csv'), encoding
 
 We need to do a bit of preprocessing on it. First, we will only keep the tweets that are labeled as 'positive' and 'negative' sentiment. Then we will use a preprocess function to tokenize each tweet and remove stop words, punctuation, URLs, @users, hashtags, convert characters to lower case, etc. 
 
-Here's the preprocess function that we will be using (credits to AnasAlmasri)
-https://gist.github.com/AnasAlmasri/853f0af319f3938754bdd447b8c56302
+Here's the preprocess function that we will be using (credits to [AnasAlmasri](https://gist.github.com/AnasAlmasri/853f0af319f3938754bdd447b8c56302))
 
 We will store this function in a separate utilities module and call it to preprocess our training and test data.
 
