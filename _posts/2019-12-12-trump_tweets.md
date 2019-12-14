@@ -1,5 +1,5 @@
 ---
-title: "Quantitative Trading Project"
+title: “Performing Sentiment Analysis on Tweets and Analyzing Their Effect on Major Stock Indexes"
 date: 2019-10-01
 #tags: [Python, Twitter, Sentiment Analysis]
 header:
@@ -7,9 +7,7 @@ header:
 mathjax: "true"
 ---
 
-# Performing Sentiment Analysis on Tweets and Analyzing Their Effect on Major Stock Indexes
-
-## Part 1: Getting Tweets Using Twitter API
+#Part 1: Getting Tweets Using Twitter API
 
 In order to access Twitter's API, you will need to register for a Twitter developer account. You should get the API key in 1-2 weeks after registering.
 
@@ -53,7 +51,7 @@ Here's what the tweet_df looks like:
 [![](/assets/images/tweet_sentiment/tweet_df.JPG)](/assets/images/tweet_sentiment/tweet_df.JPG)
 
 
-## Part 2: Preprocessing Test Data and Training a Model
+# Part 2: Preprocessing Test Data and Training a Model
 
 There are many pre-labeled datasets that we can use to train a model. We will start off with NiekSanders dataset of pre-labeled tweets. Hopefully this dataset will be able to capture the informal language and slang commonly used on social media. 
 
@@ -112,7 +110,7 @@ feature_list = list(set(list(chain.from_iterable(feature_list))))
 ```
 
 
-### Part 2a: Naive Bayes Classifier:
+## Part 2a: Naive Bayes Classifier:
 
 
 Now that our training data is preprocessed we are ready to extract the features and feed that to the Naive Bayes Classifier.
