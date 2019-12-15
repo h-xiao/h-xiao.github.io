@@ -282,6 +282,14 @@ Here's the plot:
 
 
 
+Let's run this process through a few differnt classifiers and also try using the IMDB dataset as the training set.
+
+I'll quickly run through this process for the different datasets and plot results below.
+
+
+
+
+
 
 
 
