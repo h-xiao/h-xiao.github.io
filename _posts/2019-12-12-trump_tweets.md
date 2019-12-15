@@ -159,6 +159,129 @@ Here's what the pred_tweet_df looks like:
 
 
 
+# Part 3: Graphing the Sentiment vs Major Stock Index
+
+Let's first filter for only Trump's tweets (where replies > 0)
+
+```python
+filtered_pred_df = pred_tweet_df[(pred_tweet_df['replies'] > 0)].reset_index(drop=True)
+```
+
+Since we only have the daily closing price for stocks, we should only plot a maximum if 1 sentiment a day but Trump
+tweets a lot so we need a function to compress his sentiment into 1 a day.
+We are also going to filter out his most popular tweets based on the amount of replies assuming that popular 
+tweets are more influential.
+Let's first graph a histogram of the number of replies
+
+```python
+filtered_pred_df['replies'].hist(bins=100)
+```
+
+[![](/assets/images/tweet_sentiment/filtered_pred_df_histo.JPG)](/assets/images/tweet_sentiment/filtered_pred_df_histo.JPG)
+
+
+Let's see where the 90th percentile for number of replies is:
+
+```python
+filtered_pred_df['replies'].quantile(0.90) 
+
+# returns 125882.19999999998
+```
+
+
+Let's filter the df again for only the most popular tweets (by number of replies), we'll set the limit to 125,000 since it's close to the 90th percentile
+
+```python
+filtered_pred_df = filtered_pred_df[filtered_pred_df['replies'] > 125000].reset_index(drop=True)
+```
+
+The filtered_pred_df looks like:
+[![](/assets/images/tweet_sentiment/filtered_pred_df.JPG)](/assets/images/tweet_sentiment/filtered_pred_df.JPG)
+
+We can see that even after filtering for the top 10% of tweets with the most replies, there are still many dates where there are multiple tweets and hence multiple, possibly conflicting sentiments. 
+We need to somehow compress these sentiments so that there is only a maximum of 1 sentiment per day. 
+
+This function will produce the avg sentiment (weighted by number of replies) for each day based on the dates in the filtered_pred_df.
+
+```python
+def compress_to_avg_daily_sentiment(filtered_pred_df):
+    filtered_pred_df['created'] = pd.to_datetime(filtered_pred_df['created']).dt.date
+    filtered_pred_df['sentiment_num'] = 0  # create the column
+    filtered_pred_df['sentiment_num'][filtered_pred_df['pred_sentiment'] == 'negative'] = -1
+    filtered_pred_df['sentiment_num'][filtered_pred_df['pred_sentiment'] == 'positive'] = 1
+    filtered_pred_df['sentiment_num_times_replies'] = filtered_pred_df['sentiment_num'] * filtered_pred_df['replies']
+    weighted_sentiment = filtered_pred_df.groupby('created')['sentiment_num_times_replies'].mean()
+    avg_daily_sentiment_df = weighted_sentiment.to_frame(name='sentiment')
+    avg_daily_sentiment_df['sentiment'] = avg_daily_sentiment_df['sentiment'].apply(lambda x: 'negative' if float(x) < 0 else 'positive')
+    avg_daily_sentiment_df = avg_daily_sentiment_df.reset_index()
+    return avg_daily_sentiment_df
+
+avg_daily_sentiment_df = compress_to_avg_daily_sentiment(filtered_pred_df)
+```
+Let's choose our stock index to be the S&P 500, we can query this from our daily_data_yf from our MySQL database created in this [post](https://h-xiao.github.io/setup) 
+
+```python
+sp_df = frames_dict['daily_data_yf'][(frames_dict['daily_data_yf']['symbol_id'] == 2) & (frames_dict['daily_data_yf']['date'] > '2019-03-29')]
+sp_df['date'] = pd.to_datetime(sp_df['date']).dt.date
+```
+
+We need to  convert tweet created date to the closest business date. We can use this function which will create a US trading calendar on the fly for a given year:
+
+```python
+from pandas.tseries.holiday import AbstractHolidayCalendar, Holiday, nearest_workday, USMartinLutherKingJr, USPresidentsDay, GoodFriday, USMemorialDay, USLaborDay, USThanksgivingDay
+
+class USTradingCalendar(AbstractHolidayCalendar):
+    rules = [
+        Holiday('NewYearsDay', month=1, day=1, observance=nearest_workday),
+        USMartinLutherKingJr,
+        USPresidentsDay,
+        GoodFriday,
+        USMemorialDay,
+        Holiday('USIndependenceDay', month=7, day=4, observance=nearest_workday),
+        USLaborDay,
+        USThanksgivingDay,
+        Holiday('Christmas', month=12, day=25, observance=nearest_workday)
+    ]
+    
+def get_trading_close_holidays(year):
+    inst = USTradingCalendar()
+    return inst.holidays(datetime.datetime(year, 1, 1), datetime.datetime(year, 12, 31))
+
+def get_nearest_business_day(date):
+    if date.weekday() == 5:
+        date =  date - datetime.timedelta(1)
+    elif date.weekday() == 6:
+        date = date - datetime.timedelta(2)
+
+    holidays = get_trading_close_holidays(date.year)
+    if date in holidays:
+        date = date - datetime.timedelta(1)
+    return date
+
+
+avg_daily_sentiment_df['date'] = avg_daily_sentiment_df['created'].apply(get_nearest_business_day)
+avg_daily_sentiment_df=avg_daily_sentiment_df.merge(sp_df[['date', 'close']], on='date', how='left')
+
+```
+
+
+Now we can plot the S&P500 closing price as a line graph and overlay a scatterplot showing the tweet sentiment. 
+
+
+```python
+sns.set(style='darkgrid')
+fig, ax = plt.subplots(figsize=(11, 8.5))
+sns.lineplot(x='date', y='close', data=avg_daily_sentiment_df, ax=ax)
+sns.scatterplot(x='created', y='close', data=avg_daily_sentiment_df, hue='sentiment')
+```
+
+
+Here's the plot:
+
+[![](/assets/images/tweet_sentiment/NB_pred_sp500_plot.JPG)](/assets/images/tweet_sentiment/NB_pred_sp500_plot.JPG)
+
+
+
 
 
 
