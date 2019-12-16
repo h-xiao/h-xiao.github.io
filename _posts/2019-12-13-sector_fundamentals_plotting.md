@@ -135,6 +135,9 @@ color_list = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'teal', 'plum', 'coral', 'darks
 Start the plotting:
 
 ```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 fig = plt.figure()
 sns.set(font_scale = 0.6)
 fig.subplots_adjust(hspace=0.1, wspace=0.1)
