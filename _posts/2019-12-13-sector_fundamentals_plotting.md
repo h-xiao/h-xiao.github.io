@@ -121,7 +121,7 @@ merged_df['ROI'] = ((merged_df['close'] + merged_df['dividends_qt_sum']) / merge
 
 # Part 2: Plotting Financial Ratios by Sector to Find Outperforming Stocks
 
-Now let's plot the ROA, ROE, and ROI for stocks in the S&P 500 grouped by Sub-Industry. The reason I separate it by industry is because the balance sheet for companies in different industries will vary widely and will become uncomparable if we plot everything in a single scatterplot.
+Now let's plot the ROA, ROE, and ROI for stocks in the S&P 500 grouped by Sub-Industry. The reason I separate it by sub industry is because the balance sheet for companies in different sub industries will vary widely and will become uncomparable if we plot everything in a single scatterplot.
 
 We'll create a distinct industry list to loop through after when we create the sub plots. We'll also define a color list that each sub plot will use to distinguish the different companies.
 
@@ -172,16 +172,33 @@ for i in range(1, 13):
     plt.legend(numpoints=1, loc='lower left')
 ```
 
+
+
 Here's the what the plot looks like:
-
-[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot.JPG)
-
-
 
 There are 4 points on each scatter that are the same color which shows that they are from the same company. You'll also notice that there are dots and x's in the scatter, the x's show the calculation using the most recent quarterly financials. 
 
+[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot0.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot0.JPG)
 
+[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot1.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot1.JPG)
 
+[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot2.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot2.JPG)
+
+[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot3.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot3.JPG)
+
+[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot4.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot4.JPG)
+
+[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot5.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot5.JPG)
+
+[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot6.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot6.JPG)
+
+[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot7.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot7.JPG)
+
+[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot8.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot8.JPG)
+
+[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot9.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot9.JPG)
+
+[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot10.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot10.JPG)
 
 
 
