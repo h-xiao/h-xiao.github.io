@@ -1,7 +1,7 @@
 ---
 title: Performing Sentiment Analysis on Tweets and Analyzing Their Effect on Major Stock Indexes
-date: 2019-10-01
-#tags: [Python, Twitter, Sentiment Analysis]
+date: 2019-12-15
+#tags: [Python, Data Visualisation, Fundamental Data]
 header:
   image: "/images/stock.jpg"
 mathjax: "true"

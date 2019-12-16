@@ -1,6 +1,6 @@
 ---
 title: Data Visualisation with Fundamental Stock Data
-date: 2019-11-01
+date: 2019-12-01
 #tags: [Python, Twitter, Sentiment Analysis]
 header:
   image: "/images/stock.jpg"
