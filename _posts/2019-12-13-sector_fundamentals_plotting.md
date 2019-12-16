@@ -176,29 +176,12 @@ for i in range(1, 13):
 
 Here's the what the plot looks like:
 
+
+[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot.JPG)
+
+
 There are 4 points on each scatter that are the same color which shows that they are from the same company. You'll also notice that there are dots and x's in the scatter, the x's show the calculation using the most recent quarterly financials. 
 
-[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot0.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot0.JPG)
-
-[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot1.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot1.JPG)
-
-[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot2.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot2.JPG)
-
-[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot3.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot3.JPG)
-
-[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot4.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot4.JPG)
-
-[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot5.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot5.JPG)
-
-[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot6.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot6.JPG)
-
-[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot7.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot7.JPG)
-
-[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot8.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot8.JPG)
-
-[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot9.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot9.JPG)
-
-[![](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot10.JPG)](/assets/images/sector_fundamentals_plotting/ROA,ROE,ROI_industry_plot10.JPG)
 
 
 
