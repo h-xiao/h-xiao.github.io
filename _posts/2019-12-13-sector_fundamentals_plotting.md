@@ -17,10 +17,11 @@ Let's do this analysis on the quarterly financial data since the last four quart
 
 
 In the first [post](https://h-xiao.github.io/setup), we obtained:
-- quarterly financial data for S&P500 tickers (fundamental_qt_data)
-- closing prices for S&P500 tickers (daily_data_yf)
-- industries, and sub-industries from Wiki for S&P500 tickers (sp_ticker_data)
-- tickers table which maps symbol ids to actual tickers (tickers) 
+* quarterly financial data for S&P500 tickers (fundamental_qt_data)
+* closing prices for S&P500 tickers (daily_data_yf)
+* industries, and sub-industries from Wiki for S&P500 tickers (sp_ticker_data)
+* tickers table which maps symbol ids to actual tickers (tickers) 
+
 
 
 Here's a recap of what all these tables look like. 
@@ -171,6 +172,7 @@ for i in range(1, 13):
 
     plt.legend(numpoints=1, loc='lower left')
 ```
+
 
 
 
