@@ -144,8 +144,24 @@ training_set = nltk.classify.util.apply_features(extract_features, preprocessed_
 NBClassifier = nltk.NaiveBayesClassifier.train(training_set)
 ```
 
+Test it on the validation set
+```python
+validation_df = raw_test_tweets
+validation_df['processed_tweet'] = ''
+validation_df['pred_sentiment'] = ''
+for i in range(len(validation_df)):
+    validation_df['processed_tweet'].iloc[i] = tweet_processor._processTweet(raw_test_tweets['TweetText'].iloc[i])
+    validation_df['pred_sentiment'].iloc[i] = NBClassifier.classify(extract_features(validation_df['processed_tweet'].iloc[i]))
 
-We can run a quick test on a sample tweet to check that it's working
+accuracy = sum(validation_df['pred_sentiment']==validation_df['Sentiment'])/len(validation_df)
+print(accuracy)
+
+# 0.8401826484018264
+```
+Naive Bayes accuracy is 84% which isn't too bad. We will use this 84% as our baseline accuracy in assessing other classification models
+
+
+We can also run a quick test on a sample tweet to check that it's working
 
 ```python
 # test the classifier
