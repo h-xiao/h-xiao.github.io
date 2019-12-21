@@ -95,17 +95,38 @@ class PreProcessTweets:
 ```
 
 
+Now we'll do some pre-processing:
 
+First, only keep the tweets that have positive and negative sentiment (remove the neutral sentiment)
 ```python
-# pre-process data
-raw_train_df = raw_train_df[(raw_train_df['Sentiment'] == 'positive') | (raw_train_df['Sentiment'] == 'negative')]
-raw_train_tweets = raw_train_df[['TweetText', 'Sentiment']]
-raw_train_tweets = raw_train_tweets.values.tolist()
+train_df = train_df[(train_df['Sentiment'] == 'positive') | (train_df['Sentiment'] == 'negative')]
+train_df = train_df[['TweetText', 'Sentiment']]
+```
 
+Split the training data into training and validation set to check model accuracy after
+```python
+X_train, X_test, y_train, y_test = train_test_split(train_tweets['TweetText'], train_tweets['Sentiment'], test_size=0.2)
+```
+
+Convert the split up training set back into df
+```python
+raw_train_tweets = pd.concat([X_train, y_train], axis=1)
+raw_test_tweets = pd.concat([X_test, y_test], axis=1)
+```
+
+Convert it to a list of lists to feed it to PreProcessTweets function
+```python
+raw_train_tweets = raw_train_tweets.values.tolist()
+```
+
+Call on the PreProcessTweets method above
+```python
 tweet_processor = utilities.PreProcessTweets()
 preprocessed_training_set, feature_list = tweet_processor.processTweets(raw_train_tweets)
+```
 
-# flatten nested list and remove duplicates
+Flatten nested list and remove duplicates
+```python
 feature_list = list(set(list(chain.from_iterable(feature_list))))
 ```
 
