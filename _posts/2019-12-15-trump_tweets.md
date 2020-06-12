@@ -1,5 +1,5 @@
 ---
-title: Performing Sentiment Analysis on Tweets and Analyzing Their Effect on Major Stock Indexes
+title: Performing Sentiment Analysis on Tweets and Analyzing Effect on Major Stock Indexes
 date: 2019-12-15
 #tags: [Python, Data Visualisation, Fundamental Data]
 header:
@@ -153,15 +153,14 @@ for i in range(len(validation_df)):
     validation_df['processed_tweet'].iloc[i] = tweet_processor._processTweet(raw_test_tweets['TweetText'].iloc[i])
     validation_df['pred_sentiment'].iloc[i] = NBClassifier.classify(extract_features(validation_df['processed_tweet'].iloc[i]))
 
-accuracy = sum(validation_df['pred_sentiment']==validation_df['Sentiment'])/len(validation_df)
-print(accuracy)
+print('accuracy %s' % accuracy_score(validation_df['pred_sentiment'], validation_df['Sentiment']))
 
-# 0.8401826484018264
+# accuracy: 0.8401826484018264
 ```
-Naive Bayes accuracy is 84% which isn't too bad. We will use this 84% as our baseline accuracy in assessing other classification models
+Naive Bayes accuracy is 84% which isn't too bad. We will use this 84% as our baseline accuracy in assessing other classification models.
 
 
-We can also run a quick test on a sample tweet to check that it's working
+We can also run a quick test on a sample tweet to check that it's working:
 
 ```python
 # test the classifier
@@ -204,7 +203,7 @@ Let's first filter for only Trump's tweets (where replies > 0)
 filtered_pred_df = pred_tweet_df[(pred_tweet_df['replies'] > 0)].reset_index(drop=True)
 ```
 
-Since we only have the daily closing price for stocks, we should only plot a maximum if 1 sentiment a day but Trump
+Since we only have the daily closing price for stocks, we should only plot a maximum of 1 sentiment a day but Trump
 tweets a lot so we need a function to compress his sentiment into 1 a day.
 We are also going to filter out his most popular tweets based on the amount of replies assuming that popular 
 tweets are more influential.
