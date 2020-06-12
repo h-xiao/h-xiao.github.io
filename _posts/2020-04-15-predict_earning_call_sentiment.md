@@ -71,16 +71,6 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 PRE_TRAINED_MODEL_NAME = 'bert-base-cased'
 tokenizer = BertTokenizer.from_pretrained(PRE_TRAINED_MODEL_NAME)
 
-encoding = tokenizer.encode_plus(
-    sample_txt,
-    max_length=32,
-    add_special_tokens=True, # Add '[CLS]' and '[SEP]'
-    return_token_type_ids=False,
-    pad_to_max_length=True,
-    return_attention_mask=True,
-    return_tensors='pt',  # Return PyTorch tensors
-    )
-
 token_lens = []
 for txt in train_df.review:
   tokens = tokenizer.encode(txt, max_length=512)
