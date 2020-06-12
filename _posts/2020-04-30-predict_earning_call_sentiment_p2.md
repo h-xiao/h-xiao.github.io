@@ -1,24 +1,21 @@
 ---
-title: Predict Earnings Call Sentiment using Current State of the Art Models (BERT, XLNet)
-date: 2020-04-15
+title: Predict Earnings Call Sentiment using Current State of the Art Models (BERT, XLNet) (Cont'd)
+date: 2020-04-30
 #tags: [Python, Earnings Call, NLP, BERT, XLNet, Training on GPU]
 header:
   image: "/images/stock.jpg"
 mathjax: "true"
 ---
 
-# Part 1: Out-of-Sample Training: Training BERT and XLNet using Amazon Review Dataset on Virtual Machine GPU
-
-After getting thousands of earnings call transcripts using the methods in the previous post, this section will go through how to predict sentiment for these transcripts using the current state of the art NLP models, BERT and XLNet.   
+# Part 1: Out-of-Sample Training: Training BERT and XLNet using Amazon Review Dataset on Virtual Machine GPU (Cont'd)
 
 
-## Part 1a: BERT
+## Part 1b: XLNet
 
-This [git repo](https://github.com/curiousily/Getting-Things-Done-with-Pytorch/blob/master/08.sentiment-analysis-with-bert.ipynb) was extremely useful for learning about BERT and how to implement it.
+XLNet was developed by Google and CMU researchers in 2019. It is similar to the BERT model but has key differences that allows it to outperform BERT on numerous NLP tasks.  One of the main differences is that unlike BERT, it does not use a mask token so it does not make independence assumptions between masked tokens.  XLNet is also a deeper multilayered network than BERT so it can capture dependencies in longer sequences but this means it also uses more memory and takes longer to train. 
 
-To summarize, BERT stands for Bidirectional Encoder Representations from Transformers and was developed by the Google Brain research team in 2018.  It is a lot more effective compared to CNNs and LSTMs in sentiment analysis since "Bi-directional" means it uses surrounding words (instead of reading in a single direction) and the "Transformers" make use of the attention mechanism to learn contextual references.  The words are encoded in a pre-trained embedding layer which gets fed into a neural network.  
 
-I will also be training my BERT and XLNet model (in the next section) on a virtual machine GPU since these models are too big to run locally on my PC.  I am using [Paperspace Gradient](https://www.paperspace.com) which provides an environment for Jupyter notebooks to run on their cloud GPUs.  You can sign up for a free account which will give you access to a GPU for 6 hours after which the connection will automatically close so you have to make sure your model finishes training in that time or you can split up your training set and run multiple 6 hour sessions.
+Similar to the previous post on BERT, I will also be using the cloud GPU on [Paperspace Gradient](https://www.paperspace.com) to train the XLNet model. Let's jump into the code, I've set this up very similar to the code from the BERT post.
 
 
 Depending on the container you choose in Paperspace Gradient, these are the main packages that you need to install:
@@ -344,6 +341,8 @@ y_review_texts, y_pred, y_pred_probs, y_test = get_predictions(model, test_data_
 
 
 I got a validation accuracy of about 93.2% on the Amazon Review Polarity dataset using BERT but decided to predict the earnings call sentiment using XLNet because that validation accuracy was even better. We will walk through that in the next post. 
+
+
 
 
 
