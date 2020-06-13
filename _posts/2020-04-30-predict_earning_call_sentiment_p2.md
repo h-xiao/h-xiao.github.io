@@ -378,7 +378,7 @@ def xlnet_predict_trans_sentiment(i):
     test_data_loader = create_data_loader(df, tokenizer, MAX_LEN, BATCH_SIZE)
 
     y_review_texts, y_pred, y_pred_probs, y_test = get_predictions(model, test_data_loader)
-    df = df.rename(columns={'review': 'content'})
+    df = df.rename(columns={'review': 'preprocessed_as_str'})
     df['pred'] = y_pred
     df['pred_probs'] = y_pred_probs
     df.to_csv(os.path.join(path, 'combined_trans_predictions.csv'), index=False)
