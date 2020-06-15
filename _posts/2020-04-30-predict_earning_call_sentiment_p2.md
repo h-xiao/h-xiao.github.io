@@ -3,7 +3,7 @@ title: Predict Earnings Call Sentiment using Current State of the Art Models (BE
 date: 2020-04-30
 #tags: [Python, Earnings Call, NLP, BERT, XLNet, Training on GPU]
 header:
-  image: "/images/stock.jpg"
+  image: "/images/neuralnetwork.jpg"
 mathjax: "true"
 ---
 

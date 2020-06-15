@@ -3,7 +3,7 @@ title: Analyzing Sentiment from Earnings Call Transcripts
 date: 2020-05-15
 #tags: [Python, Sentiment, Stock Price, Graphs, Analysis]
 header:
-  image: "/images/stock.jpg"
+  image: "/images/stock4.jpg"
 mathjax: "true"
 ---
 

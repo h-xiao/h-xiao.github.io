@@ -3,7 +3,7 @@ title: Predict Earnings Call Sentiment using Current State of the Art Models (BE
 date: 2020-04-15
 #tags: [Python, Earnings Call, NLP, BERT, XLNet, Training on GPU]
 header:
-  image: "/images/stock.jpg"
+  image: "/images/bert.jpg"
 mathjax: "true"
 ---
 
@@ -90,7 +90,7 @@ Here's a histogram of the token's length:
 Now we will set the max length, create the the dataset class and split our training data into train, validation, and test set.
 
 ```python
-MAX_LEN = 150 
+MAX_LEN = 250 
 RANDOM_SEED = 1
 BATCH_SIZE = 16
 

@@ -3,7 +3,7 @@ title: Getting Earnings Call Transcripts
 date: 2020-04-01
 #tags: [Python, Earnings Call, NLP, Preprocess]
 header:
-  image: "/images/stock.jpg"
+  image: "/images/boardroom.jpg"
 mathjax: "true"
 ---
 
