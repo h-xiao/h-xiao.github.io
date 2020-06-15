@@ -3,7 +3,7 @@ title: Performing Sentiment Analysis on Tweets and Analyzing Effect on Major Sto
 date: 2019-12-15
 #tags: [Python, Data Visualisation, Fundamental Data]
 header:
-  image: "/images/stock.jpg"
+  image: "/images/stock3.jpg"
 mathjax: "true"
 ---
 
