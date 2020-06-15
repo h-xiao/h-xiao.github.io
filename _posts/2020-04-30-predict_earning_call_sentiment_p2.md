@@ -7,10 +7,7 @@ header:
 mathjax: "true"
 ---
 
-# Part 1: Out-of-Sample Training: Training BERT and XLNet using Amazon Review Dataset on Virtual Machine GPU (Cont'd)
-
-
-## Part 1b: XLNet
+## Part 2: Training Current State of the Art Models on a Virtual Machine GPU (XLNet)
 
 XLNet was developed by Google and CMU researchers in 2019. It is similar to the BERT model but has key differences that allows it to outperform BERT on numerous NLP tasks.  One of the main differences is that unlike BERT, it does not use a mask token so it does not make independence assumptions between masked tokens.  XLNet is also a deeper multilayered network than BERT so it can capture dependencies in longer sequences but this means it also uses more memory and takes longer to train. 
 

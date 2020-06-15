@@ -7,12 +7,10 @@ header:
 mathjax: "true"
 ---
 
-# Part 1: Out-of-Sample Training: Training BERT and XLNet using Amazon Review Dataset on Virtual Machine GPU
-
 After getting thousands of earnings call transcripts using the methods in the previous post, this section will go through how to predict sentiment for these transcripts using the current state of the art NLP models, BERT and XLNet.   
 
 
-## Part 1a: BERT
+## Part 1: Training Current State of the Art Models on a Virtual Machine GPU (BERT)
 
 This [git repo](https://github.com/curiousily/Getting-Things-Done-with-Pytorch/blob/master/08.sentiment-analysis-with-bert.ipynb) was extremely useful for learning about BERT and how to implement it.
 
